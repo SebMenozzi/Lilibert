@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+      <h1>{{ 'Quizz.create.title' | translate }}</h1>
+      <h2 id="title"><span class="active">{{ quizz.title }}</span><span></span></h2>
+      <p class="instruction">{{ 'Quizz.create.backgroundLabel' | translate }}</p>
+      <input type='file' accept="image/*" ng-model-instant onchange="angular.element(this).scope().imageUpload(this)"/>
+
+      <p class="instruction">
+        {{ 'Quizz.create.label1' | translate }}
+        <a
+           data-tip="{{ 'Quizz.create.tips.title' | translate }}"
+           class="tip-above">
+          <i class="ion-ios-help-outline"></i>
+        </a>
+      </p>
+      <input ng-model="quizz.title" ng-minlength="3" ng-maxlength="60" type="title" name="title" required="required" data-schema-key="title" placeholder="{{ 'Quizz.create._title' | translate }}" autofocus>
+      <span class="error" ng-show="quizz_form.title.$error.minlength">{{ 'Quizz.create.errors.titleTooShort' | translate }}</span>
+      <span class="error" ng-show="quizz_form.title.$error.maxlength">{{ 'Quizz.create.errors.titleTooLong' | translate }}</span>
+
+      <ui-select ng-model="quizz.category" theme="selectize" title="Choose a category">
+        <ui-select-match placeholder="{{ 'Quizz.create.selectCategory' | translate }}"><input value="{{ 'Quizz.create.categories.' + $select.selected.name | translate }}"></ui-select-match>
+        <ui-select-choices class="cat" repeat="category in categories | filter:$select.search" position='down'>
+          <div class="name">{{ 'Quizz.create.categories.' + category.name | translate }}</div>
+        </ui-select-choices>
+      </ui-select>
+
+      <button type="button" ui-sref="quizz_create.second">{{ 'Global.next' | translate }}</button>
+      <br /><br />
+  </div>
+</div>

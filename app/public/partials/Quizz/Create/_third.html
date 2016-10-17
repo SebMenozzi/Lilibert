@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h2 id="title">{{ 'Quizz.create.subtitle3' | translate }}</h2>
+
+      <div ng-repeat="question in quizz.questions track by $index" ng-init="q = $index">
+        <br ng-show="q != 0" /><br ng-show="q != 0" />
+        <div>
+          <input type="button" ng-click="addQuestion(q)" value="{{ 'Quizz.create.addQuestion' | translate }}" ng-show="$last"></td>
+          <input type="button" ng-click="deleteQuestion($event, q)" value="{{ 'Quizz.create.deleteQuestion' | translate }}" ng-show="q != 0">
+          <br />
+          <p class="instruction">Question {{q + 1}}</p>
+          <input type="text" ng-model="quizz.questions[q].question" ng-keydown="$event.which === 13 && addQuestion(q)">
+        </div>
+        <br />
+        <p class="instruction">Answers</p>
+        <div ng-repeat="answer in quizz.questions[q].answers track by $index" ng-init="a = $index">
+          <input type="text" ng-model="quizz.questions[q].answers[a].answer" ng-keydown="$event.which === 13 && addAnswer(q, a)">
+          <i class="remove ion-android-remove-circle" ng-click="deleteAnswer($event, q, a)" ng-show="a != 0"></i>
+
+          <ui-select ng-model="quizz.questions[q].answers[a].profile" theme="selectize" title="Choose a profile">
+            <ui-select-match placeholder="{{ 'Quizz.create.selectProfile' | translate }}"><input value="{{ $select.selected.name }}"></ui-select-match>
+            <ui-select-choices class="cat" repeat="profile.name as profile in quizz.profiles | filter: $select.search" position='down'>
+              <div class="name" ng-bind-html="profile.name | highlight: $select.search">{{ profile.name }}</div>
+            </ui-select-choices>
+            <ui-select-no-choice>
+              <br />
+              <span class="error">Oops ! We couldn't find any profiles...</span>
+            </ui-select-no-choice>
+          </ui-select>
+          <br />
+          <input type="button" ng-click="addAnswer(q, a)" value="{{ 'Quizz.create.addAnswer' | translate }}" ng-show="$last"></td>
+        </div>
+      </div>
+
+      <button type="button" ui-sref="quizz_create.fourth">{{ 'Global.next' | translate }}</button>
+      <br /><br /><br /><br />
+  </div>
+</div>

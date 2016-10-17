@@ -1,0 +1,9 @@
+<div ng-controller='QuizzViewController'>
+  <div class="background" back-img="{{ picture }}"></div>
+  <nav>
+    <ol>
+      <li ui-sref-active="active" ng-repeat="i in getNumber(l) track by $index " ui-sref="quizz_view.question({q: '{{$index}}'})">{{$index+1}}</li>
+    </ol>
+  </nav>
+  <div class="wrapper" ui-view></div>
+</div>

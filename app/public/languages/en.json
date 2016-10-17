@@ -1,0 +1,95 @@
+{
+  "Global": {
+    "next": "Next",
+    "lang": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español"
+    }
+  },
+  "Login": {
+    "welcome": "Welcome",
+    "title": "Login to your account",
+    "emailLabel": "Put your email",
+    "email": "Email",
+    "dontHaveAccount": "Don't have an account?",
+    "passwordLabel": "Put your password",
+    "password": "Password",
+    "submit": "Login",
+    "retry": "Retry"
+  },
+  "Signup": {
+    "welcome": "Welcome",
+    "title": "Create an account",
+    "label1": "Choose an email and a username",
+    "email": "Email",
+    "username": "Username",
+    "alreadyHaveAccount": "Already have an account?",
+    "label2": "Choose a password and repeat it",
+    "subtitle2": "Password",
+    "password": "Password",
+    "confirmation": "Confirmation",
+    "picture": "Please choose a picture",
+    "submit": "S'inscrire",
+    "retry": "Retry",
+    "errors": {
+      "usernameTooShort": "Username too short",
+      "usernameTooLong": "Username too long",
+      "invalidEmail": "Invalid email",
+      "passwordTooShort": "Password too short",
+      "passwordTooLong": "Password too long",
+      "passwordsDontMatch": "Passwords don't match"
+    }
+  },
+  "Setting": {
+    "currentPasswordLabel": "Put your current password",
+    "currentPassword": "Current password",
+    "newEmailLabel": "Put your new email, we will send you an email to confirm it",
+    "email": "Email",
+    "newPasswordLabel": "Put your new password and repeat it",
+    "newPassword": "New password",
+    "confirmation": "Confirmation"
+  },
+  "Quizz": {
+    "create": {
+      "title": "Create my quiz",
+      "backgroundLabel": "Choose an image that will sublimate your quiz",
+      "label1": "Choose a title and a category",
+      "_title": "Title",
+      "selectCategory": "Select a category",
+      "categories": {
+        "psycho": "👤 Psychology",
+        "astro": "🌙 Astrology",
+        "sex": "🔥 Sex",
+        "social": "👥 Social",
+        "food": "🍟 Food",
+        "sport": "⚽️ Sport",
+        "politic": "👔 Politic",
+        "fun": "😜 Fun"
+      },
+      "subtitle2": "Let's create the quizz, Personalities",
+      "addProfile": "Add Profile",
+      "deleteProfile": "Delete Profile",
+      "label2": "name and description",
+      "profileName": "Profile name",
+      "profileDesc": "Profile description",
+      "subtitle3": "Let's create the quizz, Questions",
+      "addQuestion": "Add Question",
+      "deleteQuestion": "Delete Question",
+      "addAnswer": "Add Answer",
+      "selectProfile": "Select a profile",
+      "subtitle4": "Finished the quiz?",
+      "label3": "Quiz lang",
+      "selectLang": "Select a lang",
+      "submit": "Publish",
+      "tips": {
+        "title": "Your title is your headline, and its primary goal is to get you traffic. An efficient title is a clear and attractive title. You're more likely to attract attention when your headline has an emotional impact.",
+        "profile": "Le nom du profil doit être court et claire, la description doit apporter une réponse précise correspondant aux réponses fournis par l'utilisateur. Vous pouvez insérer le nom de l' utilisateur en mettant :name: dans les entrées."
+      },
+      "errors": {
+        "titleTooShort": "Title too short",
+        "titleTooLong": "Title too long"
+      }
+    }
+  }
+}

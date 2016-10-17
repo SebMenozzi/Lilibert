@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h2 id="title">{{ 'Quizz.create.subtitle4' | translate }}<span></span></h2>
+    <p class="instruction">{{ 'Quizz.create.label3' | translate }}</p>
+    <select ng-model="quizz.lang" name="lang" required="" data-schema-key="lang" autocomplete="off">
+      <option value="">{{ 'Quizz.create.selectLang' | translate }}</option>
+      <option value="en">{{ 'Global.lang.en' | translate }}</option>
+      <option value="fr">{{ 'Global.lang.fr' | translate }}</option>
+      <option value="es">{{ 'Global.lang.es' | translate }}</option>
+    </select>
+
+    <p class="instruction">Shortly describe your quiz</p>
+    <textarea msd-elastic placeholder="" ng-model="quizz.desc"></textarea>
+
+    <p class="instruction">Publish your quiz</p>
+    <div ng-class="{'toggle-on': quizz.isPublished}" ng-click="publish()" class="toggle" id="switch">
+  		<div class="toggle-text-off">Private <i class="ion-ios-locked-outline"></i></div>
+  		<div class="glow-comp"></div>
+  		<div class="toggle-button"></div>
+  		<div class="toggle-text-on">Published</i></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+@mixin col($i, $m) {
+  width: (100%/12) * $i - $m;
+  float:left;
+}
+@mixin transform($transforms){
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+@mixin rotate($deg){
+  @include transform(rotate(#{$deg}deg));
+}
+@mixin scale($value){
+  @include transform(scale(#{$value}));
+}
+@mixin flexbox(){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin inline-flex(){
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@mixin flex($values){
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+@mixin align($position){
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@mixin flex-flow($display){
+  -webkit-flex-flow: $display;
+  -ms-flex-flow: $display;
+  flex-flow: $display;
+}
+@mixin justify-content($display){
+  -webkit-box-pack: justify;
+  -webkit-justify-content: $display;
+  -ms-flex-pack: justify;
+  justify-content: $display;
+}
+@mixin transition($transitions){
+  -webkit-transition: $transitions;
+  transition: $transitions;
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+@mixin scrollbar($size, $foreground-color, $background-color, $border-radius, $border) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: auto;
+  }
+  ::-webkit-scrollbar-thumb {
+      background: $background-color;
+      border-radius: $border-radius;
+      border: $border;
+  }
+  ::-webkit-scrollbar-track-piece {
+      background: $foreground-color;
+  }
+}
+@mixin unselect() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently */
+}
+
+@mixin getRandomColor() {
+  $colors: red, orange, yellow, green, blue, purple;
+  background: lighten(nth($colors, random(length($colors))), 20%);
+}

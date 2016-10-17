@@ -1,0 +1,86 @@
+{
+  "Global": {
+    "next": "Next",
+    "lang": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español"
+    }
+  },
+  "Login": {
+    "welcome": "Bienvenue",
+    "title": "Se connecter à son compte",
+    "emailLabel": "Saisissez votre email",
+    "email": "Email",
+    "dontHaveAccount": "Pas de compte?",
+    "passwordLabel": "Saisissez votre mot de passe",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "retry": "Réessayer"
+  },
+  "Signup": {
+    "welcome": "Bienvenue",
+    "title": "Créer un compte",
+    "label1": "Choisissez un email et un nom d'utilisateur",
+    "email": "Email",
+    "username": "Nom d'utilisateur",
+    "alreadyHaveAccount": "Déjà inscris?",
+    "label2": "Choisissez un mot de passe et répettez le",
+    "subtitle2": "Choisissez votre mot de passe",
+    "password": "Mot de passe",
+    "confirmation": "Confirmation",
+    "picture": "Choisissez une photo",
+    "submit": "S'inscrire",
+    "retry": "Réessayer",
+    "errors": {
+      "usernameTooShort": "Nom d'utilisateur trop court",
+      "usernameTooLong": "Nom d'utilisateur trop long",
+      "invalidEmail": "Email invalide",
+      "passwordTooShort": "Mot de passe trop court",
+      "passwordTooLong": "Mot de passe trop long",
+      "passwordsDontMatch": "Les mots de passe ne correspondent pas"
+    }
+  },
+  "Quizz": {
+    "create": {
+      "title": "Créer mon quizz",
+      "backgroundLabel": "Choisissez une image qui sublimera votre quizz",
+      "label1": "Choisissez un titre et une catégorie",
+      "_title": "Titre",
+      "selectCategory": "Selectionnez une categorie",
+      "categories": {
+        "psycho": "👤 Psychologie",
+        "astro": "🌙 Astrologie",
+        "sex": "🔥 Sexe",
+        "social": "👥 Sociale",
+        "food": "🍟 Bouffe",
+        "sport": "⚽️ Sport",
+        "politic": "👔 Politique",
+        "fun": "😜 Fun"
+      },
+      "subtitle2": "Let's create the quizz, Personalities",
+      "addProfile": "Add Profile",
+      "deleteProfile": "Delete Profile",
+      "label2": "name and description",
+      "profileName": "Profile name",
+      "profileDesc": "Profile description",
+      "subtitle3": "Let's create the quizz, Questions",
+      "addQuestion": "Add Question",
+      "deleteQuestion": "Delete Question",
+      "addAnswer": "Add Answer",
+      "selectProfile": "Select a profile",
+      "subtitle4": "Finished the quiz?",
+      "label3": "Quiz lang",
+      "selectLang": "Select a lang",
+      "submit": "Publish",
+      "tips": {
+        "title": "Your title is your headline, and its primary goal is to get you traffic. An efficient title is a clear and attractive title. You're more likely to attract attention when your headline has an emotional impact.",
+        "profile": "Le nom du profil doit être court et claire, la description doit apporter une réponse précise correspondant aux réponses fournis par l'utilisateur. Vous pouvez insérer le nom de l' utilisateur en mettant :name: dans les entrées."
+      },
+      "errors": {
+        "titleTooShort": "Title too short",
+        "titleTooLong": "Title too long"
+      }
+    }
+  }
+}

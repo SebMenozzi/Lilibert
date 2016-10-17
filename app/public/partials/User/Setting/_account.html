@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <img class="logo" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <div class="portrait octogon"><img src="{{ currentUser.picture }}"></div>
+    <h2 id="title">Account</h2>
+    <p class="instruction">{{ 'Setting.newEmailLabel' | translate }}</p>
+    <input ng-model="user.email" type="email" name="email" required="required" data-schema-key="email" maxlength="60" placeholder="{{ 'Setting.email' | translate }}" autofocus>
+    <ui-select ng-model="user.lang" theme="selectize" title="Select a lang">
+      <ui-select-match placeholder="Select a lang"><input value="{{ 'Global.lang.' + $select.selected.name | translate }}"></ui-select-match>
+      <ui-select-choices ng-click="changeLanguage($select.selected.name)" class="cat" repeat="lang in languages | filter:$select.search" position='down'>
+        <div class="name">{{ 'Global.lang.' + lang.name | translate }}</div>
+      </ui-select-choices>
+    </ui-select>
+    <a class="more" ui-sref="setting.password">Change my password</a>
+  </div>
+</div>

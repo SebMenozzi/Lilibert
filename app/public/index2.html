@@ -1,0 +1,1086 @@
+<!DOCTYPE html><html class=''>
+<head>
+
+<link rel='stylesheet prefetch' href='http://codepen.io/assets/reset/normalize.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic&subset=latin,latin-ext);
+* {
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+  text-decoration: none;
+  color: #2196f3;
+  font-weight: 100;
+}
+a:hover {
+  color: #0c7cd5;
+}
+a:active {
+  color: #0a6ebd;
+}
+
+img {
+  max-width: 100%;
+}
+
+.compose, .search-button, .modal-button button {
+  border: none;
+  outline: none;
+  background: #f0f0f0;
+}
+
+body {
+  color: #333333;
+  background-color: #D4DBE2;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
+
+p {
+  color: #696969;
+}
+
+.window {
+  height: 100vh;
+}
+
+.toolbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  padding: 0 20px;
+  background-color: #e61d2b;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 5px solid #ca1a26;
+}
+
+.sidebar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 20px;
+  background-color: #1f232b;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 70px;
+      -ms-flex: 1 0 70px;
+          flex: 1 0 70px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.categories {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+.categories li {
+  position: relative;
+}
+.categories i {
+  margin-bottom: 30px;
+  cursor: pointer;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+  color: white;
+  font-size: 20px;
+}
+.categories i:hover {
+  opacity: 1;
+}
+
+.notification {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  color: white;
+  border: 3px solid #2a2f39;
+  border-radius: 50%;
+  background-color: #ea2e49;
+  font-size: 12px;
+  font-weight: 600;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.is-active {
+  opacity: 1 !important;
+}
+
+.compose {
+  padding: 8px 13px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  color: white;
+  border-radius: 3px;
+  background-color: #2196f3;
+  font-size: 20px;
+}
+.compose:hover {
+  background-color: #0c7cd5;
+}
+.compose:active {
+  background-color: #0a6ebd;
+}
+
+.user-profile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 20px;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.user-profile i {
+  margin-top: 20px;
+  cursor: pointer;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+  color: white;
+  font-size: 20px;
+}
+.user-profile i:hover {
+  opacity: 1;
+}
+.menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #2a2f39;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 220px;
+      -ms-flex: 1 0 220px;
+          flex: 1 0 220px;
+}
+.menu ul {
+  width: 100%;
+  padding: 0px 5px 5px 5px;
+}
+.menu li {
+  padding: 5px 15px 5px 15px;
+  color: #a6a3ab;
+  margin: 10px;
+}
+.menu li:hover {
+  background: #20242d;
+  color: white;
+  border-radius: 10px;
+}
+.menu li.active {
+  background: #20242d;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 15px 5px 15px;
+  margin: 10px;
+}
+.menu li span {
+   margin-right: 10px;
+}
+
+
+.inbox {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #d9e0e2;
+  border-right: 1px solid #d9e0e2;
+  background: white;
+  -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  overflow-y: auto;
+}
+.inbox-item {
+  height: 260px;
+  padding: 30px;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  border-bottom: 2px solid #d9e0e2;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.inbox-item:hover, .inbox-item.active {
+  background-color: #edf5fd;
+}
+.inbox-item:last-child {
+  border-bottom: 0;
+}
+
+.inbox-sender {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.inbox-title {
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sender-name {
+  font-weight: 600;
+}
+
+.sender-date {
+  font-weight: 600;
+}
+.sender-date span {
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+.sender-label {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.message {
+  width: 100%;
+  min-width: 400px;
+  padding: 30px;
+  border-top: 1px solid #d9e0e2;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.message-title {
+  font-size: 35px;
+  font-weight: 100;
+}
+
+.message-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.message-from {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.message-from img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.message-sender {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+.message-sender h5 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 100;
+}
+.message-sender span {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.message-is-active {
+  background: #edf5fd;
+}
+
+.message-tools i {
+  margin-left: 20px;
+  cursor: pointer;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  color: #2a2f39;
+  font-size: 25px;
+}
+.message-tools i:hover {
+  opacity: 0.6;
+}
+
+.window-actions {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.actions-item {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #dddddd;
+}
+.actions-item:nth-child(1) {
+  background-color: #f44336;
+}
+.actions-item:nth-child(2) {
+  background-color: #ffeb3b;
+}
+.actions-item:nth-child(3) {
+  background-color: #4caf50;
+}
+
+input[type="search"] {
+  width: 300px;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  color: white;
+  outline: 0;
+}
+input[type="search"]:focus {
+  outline: none;
+}
+
+.search-button {
+  height: 30px;
+  margin-left: -8px;
+  padding: 0 15px;
+  color: white;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ca1a26;
+  font-size: 12px;
+  font-weight: 600;
+}
+.search-button:hover {
+  background-color: #d01530;
+}
+.search-button:active {
+  background-color: #b9132a;
+}
+
+.message-labels .message-labels-item {
+  margin: 20px 0;
+}
+
+.red {
+  border: 2px solid #ea2e49;
+  background-color: rgba(234, 46, 73, 0.5);
+}
+
+.blue {
+  border: 2px solid #2196f3;
+  background-color: rgba(33, 150, 243, 0.5);
+}
+
+.yellow {
+  border: 2px solid #ffeb3b;
+  background-color: rgba(255, 235, 59, 0.5);
+}
+
+.green {
+  border: 2px solid #4caf50;
+  background-color: rgba(76, 175, 80, 0.5);
+}
+
+.message-labels-item {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/* Overlay and Modal */
+.overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -webkit-transition: visibility 800ms ease-in-out, opacity 500ms ease-in-out;
+  transition: visibility 800ms ease-in-out, opacity 500ms ease-in-out;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  width: 520px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+  outline: none;
+}
+.modal-form input:focus,
+.modal-form textarea:focus {
+  border-color: #2780f8;
+  box-shadow: 0 0 7px rgba(39,128,248,.15);
+}
+.modal-form textarea {
+  resize: vertical;
+}
+
+.modal-body {
+  padding: 20px;
+  border-top: 1px solid #d9e0e2;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #f6f7f8;
+}
+
+.modal-button {
+  padding-top: 10px;
+  text-align: right;
+}
+.modal-button button {
+  padding: 5px 20px;
+  color: white;
+  border-radius: 3px;
+  background-color: #2196f3;
+}
+.modal-button button:hover {
+  background-color: #0c7cd5;
+}
+.modal-button button:active {
+  background-color: #0a6ebd;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+.modal-close:hover {
+  opacity: 0.5;
+}
+.modal-close:after {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 15px;
+  height: 2px;
+  content: "";
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #333333;
+}
+.modal-close:before {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 15px;
+  height: 2px;
+  content: "";
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-color: #333333;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: white;
+   opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: white;
+   opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: white;
+}
+
+
+.avatar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    font-size: 13px;
+    color: #8897a4;
+    margin-top: 4px;
+}
+
+
+
+.avatar__info, .avatar__photo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.avatar__photo {
+    margin-right: 10px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.avatar__image {
+    width: 32px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+    position: relative;
+    z-index: 4;
+}
+
+
+.post_feedback {
+    display: table;
+    margin: 40px auto;
+    background: #2fdab8;
+    border: 0;
+    color: white;
+    padding: 15px 20px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    border-radius: 100px;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    outline: 0;
+}
+
+
+.scroller::-webkit-scrollbar {
+    width: 14px;
+}
+.scroller::-webkit-scrollbar-thumb {
+    background-color: #7289da;
+    background-clip: padding-box;
+    border: 3px solid #fff;
+    border-radius: 7px;
+}
+.scroller::-webkit-scrollbar-track-piece {
+    background-color: #f3f3f3;
+}
+.scroller::-webkit-scrollbar-thumb {
+    background-color: #7289da;
+    background-clip: padding-box;
+    border: 3px solid #fff;
+    border-radius: 7px;
+}
+
+.vote {
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+  color: #525558;
+  -webkit-user-select: none;
+  cursor: default;
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 60px;
+}
+.vote__arrow {
+  width: 42px;
+  margin: 8px 0;
+  fill: none;
+  stroke-width: 2;
+  stroke: #abaeb1;
+  cursor: pointer;
+  transition: transform 150ms ease-in-out;
+}
+.vote__arrow:active {
+  transform: scale(1.15);
+}
+.vote__arrow--up:active {
+  stroke: #b4da55;
+}
+.vote__arrow--down:active {
+  stroke: #F33119;
+}
+
+.vote__columns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote__column {
+  height: 48px;
+  font-size: 42px;
+  overflow: hidden;
+}
+
+</style>
+</head>
+<body>
+
+<div class="window">
+  <div class="content">
+    <div class="overlay">
+      <div class="modal">
+        <div class="modal-title">New message<span class="modal-close"></span></div>
+        <div class="modal-body">
+          <form class="modal-form">
+            <input type="text" placeholder="To"/>
+            <input type="text" placeholder="Subject"/>
+            <textarea name="message" rows="5" placeholder="Your text"></textarea>
+            <div class="modal-button">
+              <button class="send">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <aside class="sidebar">
+      <nav>
+        <button class="compose"> <i class="fa fa-pencil"></i></button>
+        <ul class="categories">
+          <li>
+            <div class="notification"><span>5</span></div><i class="fa fa-inbox is-active"></i>
+          </li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-send"></i></li>
+          <li><i class="fa fa-trash"></i></li>
+        </ul>
+      </nav>
+      <div class="user-profile"><i class="fa fa-cog"></i><i class="fa fa-sign-out"></i></div>
+    </aside>
+    <div class="menu">
+      <ul>
+        <li><span class="fa fa-angle-down"></span>General</li>
+        <li><span class="fa fa-angle-down"></span>Users</li>
+        <li><span class="fa fa-angle-down"></span>Teams</li>
+        <li class="active"><span class="fa fa-angle-down"></span>Ideas</li>
+        <li><span class="fa fa-angle-down"></span>Challenges</li>
+      </ul>
+    </div>
+    <ul class="scroller inbox">
+      <li class="inbox-item active">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+      <li class="inbox-item">
+        <div class="inbox-sender">
+          <div class="avatar">
+            <div class="avatar__photo">
+              <img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" class="avatar__image" style="width: 52px;">
+            </div>
+            <div class="avatar__info">
+              <div>
+                Written by <a>Sebastien Menozzi</a>
+                <br>Updated about 22 hours ago
+              </div>
+            </div>
+           </div>
+          <div class="sender-date"><span>Yesterday, 12:42pm</span></div>
+        </div>
+        <h4 class="inbox-title">This is an innovative idea</h4>
+        <p class="inbox-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="avatar">
+          <div class="avatar__photo avatars__images">
+            <img src="https://static.intercomassets.com/avatars/13347/square_128/Ruairis_bio_pic-1462395215-1462445947.png?1462445947" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/211767/square_128/AAEAAQAAAAAAAAa3AAAAJGEzZGUxNzQyLTJkZDktNDQzZC05NjhhLTc3Y2JhMGZlNTFlOQ-1462424067-1462477430.jpg?1462477430" class="avatar__image">
+            <img src="https://static.intercomassets.com/avatars/157648/square_128/me-1462418334-1462472670.jpg?1462472670" class="avatar__image">
+          </div>
+          <div class="avatar__info">
+              <div>
+                <span class="c__darker">
+                  27 feedbacks posted
+                </span>
+                <br>
+                Last activity about 2 hours ago
+              </div>
+           </div>
+         </div>
+      </li>
+    </ul>
+    <div class="scroller message">
+      <div class="message-info">
+        <div class="message-from"><img src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13731293_496064860590651_1627377360_n.jpg?ig_cache_key=MTMxMjY3NzI1MDkyMzQ3NDEyOQ%3D%3D.2" alt="img"/>
+          <div class="message-sender">
+            <h5>Sebastien Menozzi</h5><span><a href="#">seb.menozzi@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="message-tools">
+          <!--<i class="fa fa-reply"></i><i class="fa fa-star-o"></i><i class="fa fa-trash-o"></i>-->
+          <div class="vote">
+            <svg viewBox="0 0 28 12" class="vote__arrow vote__arrow--up"><polyline points="0.595,11.211 14.04,1.245 27.485,11.211"></polyline></svg>
+            <div class="vote__columns">
+              <div class="vote__column">1</div>
+              <div class="vote__column">1</div>
+            </div>
+            <svg viewBox="0 0 28 12" class="vote__arrow vote__arrow--down"><polyline points="27.485,0.803 14.04,10.769 0.595,0.803"></polyline></svg>
+          </div>
+        </div>
+      </div>
+      <h2 class="message-title">This is an innovative idea</h2>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <img src="http://metalab.co/images/projects/slack/gallery/2-full-a7869a72.png" alt="img"/>
+      <h3>Title 1</h3>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Title 2</h2>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>Title 3</h3>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Title 4</h2>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>Title 5</h3>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Title 6</h2>
+      <p class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>$(document).ready(function () {
+    $('.compose').click(function () {
+        $('.overlay').addClass('is-open');
+    });
+    $('.modal-close, .send').click(function () {
+        $('.overlay').removeClass('is-open');
+    });
+});
+//# sourceURL=pen.js
+</script>
+</body></html>

@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <img ui-sref="home" class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h1>{{ 'Signup.title' | translate }}</h1>
+    <h2 id="title">{{ 'Signup.subtitle2' | translate }}<span></span></h2>
+    <p class="instruction">{{ 'Signup.label2' | translate }}</p>
+    <input ng-model="user.password" ng-minlength="3" ng-maxlength="40" type="password" name="password" required="required" data-schema-key="password" maxlength="50" placeholder="{{ 'Signup.password' | translate }}" autofocus>
+    <span class="error" ng-show="signup_form.password.$error.minlength">{{ 'Signup.errors.passwordTooShort' | translate }}</span>
+    <span class="error" ng-show="signup_form.password.$error.maxlength">{{ 'Signup.errors.passwordTooLong' | translate }}</span>
+    <input ng-model="user.password_confirmation" data-password-verify="user.password" ng-minlength="3" ng-maxlength="40" type="password" name="password_confirmation" required="required" data-schema-key="password_confirmation" maxlength="50" placeholder="{{ 'Signup.confirmation' | translate }}" autofocus>
+    <span class="error" ng-show="signup_form.password_confirmation.$error.minlength">{{ 'Signup.errors.passwordTooShort' | translate }}</span>
+    <span class="error" ng-show="signup_form.password_confirmation.$error.maxlength">{{ 'Signup.errors.passwordTooLong' | translate }}</span>
+    <span class="error" ng-show="signup_form.password_confirmation.$error.passwordVerify">{{ 'Signup.errors.passwordsDontMatch' | translate }}</span>
+    <button ui-sref="signup.third">{{ 'Global.next' | translate }}</button>
+  </div>
+</div>

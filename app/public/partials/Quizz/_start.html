@@ -1,0 +1,11 @@
+<div ng-controller='QuizzStartController'>
+  <div class="background" back-img="{{ quizz.picture }}"></div>
+  <div class="wrapper">
+    <img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+    <div class="container">
+      <h1>{{ quizz.title }}</h1>
+      <p id="desc" class="ng-binding">{{ quizz.desc }}</p>
+      <button class="QuizCover-start-button" ui-sref="quizz_view.question({ qid: quizz.qid })">Commencer</button>
+    </div>
+  </div>
+</div>

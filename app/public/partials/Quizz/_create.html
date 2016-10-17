@@ -1,0 +1,17 @@
+<nav>
+  <ol>
+    <li ui-sref-active="active" ui-sref=".first">1</li>
+    <li ui-sref-active="active" ui-sref=".second">2</li>
+    <li ui-sref-active="active" ui-sref=".third">3</li>
+    <li ui-sref-active="active" ui-sref=".fourth">4</li>
+  </ol>
+</nav>
+<div ng-controller='QuizzCreateController'>
+  <div class="background" back-img="{{ quizz.picture }}"></div>
+  <form name="quizz_form">
+    <div id="form-views" ui-view></div>
+  </form>
+  <div ng-show="autosave" class="autosave">
+    <button type="button" ng-click="save()" class="ng-binding">{{ autosave_msg }}</button>
+  </div>
+</div>

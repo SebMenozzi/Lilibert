@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<!---
+|    _        _        _____   ______ _____  _________
+|   | |     _| |     _|  __  \|  ____|  __ \|___   ___|
+|   | |    | | |    | | |__) /| |__  | |__) |   | |
+|   | |    | | |    | |  __  \|  __| |  _  /    | |
+|   | |____| | |____| | |__) || |____| | \ \    | |
+|   |______/_|______/_|_____ /|______|_|  \_\   |_|
+|
+-->
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" itemprop="description" content="Lilibert.com - Quizz app">
+		<meta name="keywords" itemprop="keywords" content="quizz, quiz, app, lilibert, cat, fun">
+		<meta name="robots" content="index,follow,noodp">
+		<link rel="canonical" href="http://lilibert.com">
+		<meta property="og:title" content="Lilibert">
+		<meta property="og:url" content="http://lilibert.com">
+		<meta property="og:image" content="http://lilibert.com?">
+		<meta property="og:site_name" content="Lilibert">
+		<meta property="og:description" content="Lilibert.com - Quizz app">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:description" content="Lilibert.com - Quizz app">
+		<meta itemprop="image" content="http://lilibert.com?">
+
+		<base href="/">
+
+		<title>Lilibert</title>
+
+		<!-- build:css assets/css/vendor.css -->
+		<link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+		<link href="assets/vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/vendor/normalize-css/normalize.css" rel="stylesheet" type="text/css">
+		<link href="assets/vendor/angular-ui-select/dist/select.min.css" rel="stylesheet" type="text/css">
+		<!-- endbuild -->
+
+		<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+  </head>
+
+	<body ng-controller="MainController as m">
+		<div ng-show="currentUser" class="UserProfile">
+		  <div class="User">
+		    <div class="name">{{currentUser.username}}</div>
+		    <div class="image"><img src="{{currentUser.picture}}"></div>
+		  </div>
+		</div>
+		<div ng-class="stateIsLoading ? '' : 'loaded'" class="loading-spinner">
+			<span class="circle"></span>
+		</div>
+		<div ng-if="!stateIsLoading" ui-view></div>
+	</body>
+
+  <!-- build:js assets/scripts/vendor.js -->
+  <script src="assets/vendor/angular/angular.min.js"></script>
+  <script src="assets/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="assets/vendor/angular-ui-router.stateHelper/statehelper.min.js"></script>
+  <script src="assets/vendor/angular-animate/angular-animate.min.js"></script>
+	<script src="assets/vendor/angular-jwt/dist/angular-jwt.min.js"></script>
+	<script src="assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="assets/vendor/angular-translate/angular-translate.min.js"></script>
+	<script src="assets/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+	<script src="assets/vendor/ng-giphy/dist/ng-giphy.min.js"></script>
+	<script src="assets/vendor/angular-ui-select/dist/select.js"></script>
+	<script src="assets/vendor/angular-elastic/elastic.js"></script>
+	<!-- endbuild -->
+
+  <!-- build:inlinejs assets/scripts/app.js -->
+  <script src="assets/scripts/app.js"></script>
+	<script src="assets/scripts/MainController.js"></script>
+	<script src="assets/scripts/User/UserController.js"></script>
+	<script src="assets/scripts/User/UserService.js"></script>
+	<script src="assets/scripts/User/UserDirective.js"></script>
+	<script src="assets/scripts/User/UserLanguagesService.js"></script>
+	<script src="assets/scripts/User/UserEditController.js"></script>
+	<script src="assets/scripts/HomeController.js"></script>
+	<script src="assets/scripts/Quizz/QuizzCreateController.js"></script>
+	<script src="assets/scripts/Quizz/QuizzService.js"></script>
+	<script src="assets/scripts/Quizz/QuizzStartController.js"></script>
+	<script src="assets/scripts/Quizz/QuizzViewController.js"></script>
+	<script src="assets/scripts/Quizz/QuizzResultController.js"></script>
+	<script src="assets/scripts/Quizz/QuizzCategoriesService.js"></script>
+	<!-- endbuild -->
+
+	</body>
+</html>

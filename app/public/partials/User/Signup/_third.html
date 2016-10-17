@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <img ui-sref="home" class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h2 id="title">{{ 'Signup.picture' | translate }}</h2>
+    <div class="portrait octogon"><input type='file' accept="image/*" ng-model-instant onchange="angular.element(this).scope().imageUpload(this)"/><img ng-src="{{ user.picture }}" /></div>
+    <button ng-click="signup()" ui-sref="signup.fourth">{{ 'Signup.submit' | translate }}</button>
+  </div>
+</div>

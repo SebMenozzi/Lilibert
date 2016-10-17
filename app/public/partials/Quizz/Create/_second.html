@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h2 id="title">{{ 'Quizz.create.subtitle2' | translate }}</h2>
+
+      <div ng-repeat="profile in quizz.profiles track by $index" ng-init="p = $index">
+        <br ng-show="p != 0" /><br ng-show="p != 0" />
+        <div>
+          <input type="button" ng-click="addProfile(p)" value="{{ 'Quizz.create.addProfile' | translate }}" ng-show="$last"></td>
+          <br />
+          <p class="instruction">
+            <b>Profile {{p + 1}}:</b>  {{ 'Quizz.create.label2' | translate }}
+            <a
+               data-tip="{{ 'Quizz.create.tips.profile' | translate }}"
+               class="tip-above">
+              <i class="ion-ios-help-outline"></i>
+            </a>
+          </p>
+          <div>
+            <input type="text" placeholder="{{ 'Quizz.create.profileName' | translate }}" ng-model="quizz.profiles[p].name" ng-keydown="$event.which === 13 && addProfile(p)">
+            <i class="remove ion-android-remove-circle" ng-click="deleteProfile($event, p)" ng-show="p != 0"></i>
+            <textarea msd-elastic placeholder="{{ 'Quizz.create.profileDesc' | translate }}" ng-model="quizz.profiles[p].desc"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" ui-sref="quizz_create.third">{{ 'Global.next' | translate }}</button>
+      <br /><br /><br /><br />
+  </div>
+</div>

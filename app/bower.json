@@ -1,0 +1,21 @@
+{
+    "name": "invents.io",
+    "dependencies": {
+        "angular": "latest",
+        "angular-ui-router": "latest",
+        "angular-ui-router.stateHelper": "latest",
+        "angular-translate": "latest",
+        "angular-translate-loader-static-files": "latest",
+        "angular-animate": "latest",
+        "fontawesome": "latest",
+        "ionicons": "latest",
+        "animate.css": "latest",
+        "normalize-css": "latest",
+        "angular-loading-bar": "latest",
+        "angular-jwt": "latest",
+        "angular-sanitize": "latest",
+        "ng-giphy": "latest",
+        "angular-ui-select": "latest",
+        "angular-elastic": "latest"
+    }
+}

@@ -1,0 +1,10 @@
+<img class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+<div class="container">
+  <h1>{{ title }}</h1>
+  <h2 id="title">{{ quizz.question }}</h2>
+  <ul>
+    <li ng-repeat="answer in quizz.answers track by $index" ng-init="a = $index">
+      <input class="response" ng-class="{active: results[q].data == a}" type="button" ng-click="addResult(q, a)" name="answer" value="{{ quizz.answers[a].answer }}" ui-sref="quizz_view.question({q: q + 1})" />
+    </li>
+  </ul>
+</div>

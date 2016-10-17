@@ -1,0 +1,28 @@
+{
+  "name": "ServerInvents.io",
+  "version": "0.0.0",
+  "description": "Share to make ideas happen",
+  "main": "server.js",
+  "scripts": {
+    "watchify": "watchify app.js -o public/js/bundle.js"
+  },
+  "author": "Sebastien Menozzi",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "2.4.2",
+    "express": "4.14.0",
+    "body-parser": "1.15.2",
+    "morgan": "1.7.0",
+    "jsonwebtoken": "7.1.6",
+    "path": "0.12.7",
+	  "nedb": "1.8.0",
+    "bower": "1.7.9",
+    "validator": "5.5.0",
+    "node-uuid": "1.4.7",
+    "connect-roles": "3.1.2"
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-load-plugins": "latest"
+  }
+}

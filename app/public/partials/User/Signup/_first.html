@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <img ui-sref="home" class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h1>{{ 'Signup.title' | translate }}</h1>
+    <h2 id="title">Welcome <span class="active">{{ user.username }}</span><span></span></h2>
+      <p class="instruction">{{ 'Signup.label1' | translate }}</p>
+      <input ng-model="user.email" type="email" name="email" required="required" data-schema-key="email" maxlength="60" placeholder="{{ 'Signup.email' | translate }}" autofocus>
+      <span class="error" ng-show="signup_form.email.$error.email">{{ 'Signup.errors.invalidEmail' | translate }}</span>
+      <input ng-model="user.username" ng-minlength="3" ng-maxlength="20" type="username" name="username" required="required" data-schema-key="username" maxlength="60" placeholder="{{ 'Signup.username' | translate }}" autofocus>
+      <span class="error" ng-show="signup_form.username.$error.minlength">{{ 'Signup.errors.usernameTooShort' | translate }}</span>
+      <span class="error" ng-show="signup_form.username.$error.maxlength">{{ 'Signup.errors.usernameTooLong' | translate }}</span>
+      <a class="more" ui-sref="login.first">{{ 'Signup.alreadyHaveAccount' | translate }}</a>
+      <button ui-sref="signup.second">{{ 'Global.next' | translate }}</button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <img ui-sref="home" class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <h1>{{ 'Login.title' | translate }}</h1>
+    <h2 id="title">{{ 'Login.welcome' | translate }} <span class="active">{{ user.username }}</span><span></span></h2>
+      <p class="instruction">{{ 'Login.emailLabel' | translate }}</p>
+      <input ng-change="getByEmail()" ng-model="user.email" type="email" name="email" required="required" data-schema-key="email" maxlength="60" placeholder="{{ 'Login.email' | translate }}" autofocus>
+      <a class="more" ui-sref="signup.first">{{ 'Login.dontHaveAccount' | translate }}</a>
+      <button ui-sref="login.second">{{ 'Global.next' | translate }}</button>
+  </div>
+</div>

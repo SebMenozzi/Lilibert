@@ -1,0 +1,8 @@
+<div ng-controller='UserEditController'>
+  <form name="setting_form">
+    <div ui-view></div>
+  </form>
+  <div ng-show="autosave" class="autosave">
+    <button type="button" ng-click="save()" class="ng-binding">{{ autosave_msg }}</button>
+  </div>
+</div>

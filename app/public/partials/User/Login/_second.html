@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <img ui-sref="home" class="logo ng-scope" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+  <div class="container">
+    <div class="portrait octogon"><img src="{{ user.picture }}"></div>
+    <h2 id="title">Please put your password <span></span></h2>
+    <p class="instruction">{{ 'Login.passwordLabel' | translate }}</p>
+    <input ng-model="user.password" type="password" name="password" required="required" data-schema-key="password" maxlength="50" placeholder="{{ 'Login.password' | translate }}" autofocus>
+    <button ng-click="login()" ui-sref="login.third">{{ 'Login.submit' | translate }}</button>
+  </div>
+</div>

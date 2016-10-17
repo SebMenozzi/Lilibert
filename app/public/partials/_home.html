@@ -1,0 +1,35 @@
+<div ng-controller='HomeController'>
+  <div class="wrapper">
+    <img class="logo" src="assets/fonts/lilibert-logo.svg" alt="Lilibert logo">
+    <div class="container">
+      <button ui-sref="quizz_create.first">Create a quizz</button>
+      <h1>Drafts</h1>
+      <div ng-repeat="quizz in quizzes track by $index" ng-init="q = $index">
+        <button ui-sref="quizz_create.first({qid: '{{ quizz.qid }}'})"><span ng-if="quizz.data.title">{{ quizz.data.title }}</span><span ng-if="!quizz.data.title">Untitled</span></button>
+        <i style="margin-top: -32px;" class="remove ion-android-remove-circle" ng-click="deleteQuizz(quizz.qid, q)"></i>
+      </div>
+    </div>
+    <h1>Published</h1>
+    <div class="quizzes">
+      <div class="card" ui-sref="quizz_create.first({qid: '{{ quizz.qid }}'})" ng-repeat="quizz in quizzes track by $index" ng-init="q = $index">
+        <div class="card__image">
+          <img ng-hide="!quizz.data.picture" src="{{ quizz.data.picture }}">
+          <div class="card__overlay">
+            <div class="card__overlay-content">
+              <ul class="card__meta">
+                <li><i class="fa fa-tag"></i> <a href="#0">{{ quizz.data.category.name }}</a></li>
+                <li><i class="fa fa-clock-o"></i> <a href="#0">{{ quizz.data.lastUpdate  * 1000 | date:'dd/MM/yyyy à HH:mm:ss'}}</a></li>
+              </ul>
+              <a href="#0" class="card__title"><span ng-if="quizz.data.title">{{ quizz.data.title }}</span><span ng-if="!quizz.data.title">Untitled</span></a>
+              <ul class="card__meta card__meta--last">
+                <li><a href="#0"><i class="fa fa-user"></i> Sebinou</a></li>
+                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="/" class="back-button"></a>
